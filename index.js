@@ -12,8 +12,8 @@ const lugares = [
 let imagem = document.getElementById("choose");
 let nome = document.getElementById("placeName");
 let celebration = document.getElementById("celebration");
-
-const escolha = () => {
+var executed = false;
+const choice = () => {
   let lugar = lugares[Math.floor(Math.random() * lugares.length)];
   if (lugar == "Hamburgueria Americas") {
     imagem.innerHTML = `<img src='Assets/hamburgueria.jpeg'/>`;
@@ -48,4 +48,8 @@ const escolha = () => {
     imagem.innerHTML = `<img src='Assets/pizzarock.jpg'/>`;
     nome.innerText = "Rock Pizza Roll";
   }
+  executed = true;
+};
+const escolha = () => {
+  if (!executed) choice();
 };
